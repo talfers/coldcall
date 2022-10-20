@@ -1,0 +1,7 @@
+version: '3'
+services:
+  coldcall:
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    env_file: ./secrets.env
