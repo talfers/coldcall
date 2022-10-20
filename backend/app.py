@@ -54,8 +54,8 @@ def voice_route():
         fro = request.form['From']
         city = request.form['CallerCity']
         body = f"""
-        Wholesale call!! 
-        From: {fro}
+        Call from wholesale campaign... 
+        Phone: {fro}
         City: {city}
         """
         texter.sendMessage(
