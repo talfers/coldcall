@@ -16,9 +16,8 @@ texter = Texter(
 df = pd.read_csv('./data/contact_data.csv')
 
 for r in df.itertuples():
-    number = '+13162136004' # texter.cleanNumber(getattr(r, 'Phone'))
+    number = texter.cleanNumber(getattr(r, 'Phone'))
     message = texter.createMessageBody(getattr(r, 'Owner'), getattr(r, 'Address'))
-    print(message)
     if number:
         try:
             message = texter.sendMessage(
@@ -26,7 +25,6 @@ for r in df.itertuples():
                 message, 
             )
             logger.info(message)
-            # logger.info(f'sent message to: {number}')
         except Exception as e:
             logger.error(e)
             exit_code = 1
