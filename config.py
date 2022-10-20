@@ -1,8 +1,8 @@
-import os
+import os, pathlib
 from log import logging
 from dotenv import load_dotenv
 
-load_dotenv('./secrets.env')
+load_dotenv(f'{pathlib.Path(__file__).parent.resolve()}/secrets.env')
 
 logger = logging.getLogger('config_class')
 sLogLevel = os.environ.get('LOG_LEVEL', 'INFO').upper()
