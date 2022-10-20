@@ -3,7 +3,6 @@ from twilio.rest import Client
 
 logger = logging.getLogger('twilio_class')
 
-
 class Texter:
     def __init__(self, account_sid, auth_token, phone_number):
         self.account_sid = account_sid
