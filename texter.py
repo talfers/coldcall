@@ -1,4 +1,5 @@
 from log import logging
+from jinja2 import Template
 from twilio.rest import Client
 
 logger = logging.getLogger('twilio_class')
@@ -32,3 +33,16 @@ class Texter:
             return phone
         else:
             return None
+
+    def createMessageBody(self, name, address):
+        rendered = ""
+        with open('./wholesale.j2') as f:
+            rendered = Template(
+                f.read(), 
+                trim_blocks=True, 
+                lstrip_blocks=True
+            ).render({
+                'name': name, 
+                'address': address
+            })
+        return rendered
