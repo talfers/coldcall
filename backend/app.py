@@ -5,7 +5,6 @@ sys.path.append("..")
 from config import Config
 from texter import Texter
 
-
 # Create app var from Flask package
 server = Flask(__name__)
 # Set path of current app dirname
@@ -18,7 +17,6 @@ texter = Texter(
     config.twilio_phone_number
 )
 
-print(config.twilio_auth_token)
 # Troubleshooting route
 @server.route('/')
 def home_route():
